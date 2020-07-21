@@ -1,0 +1,39 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+ScreenManager:
+    transition: FadeTransition()
+    StartScreen:
+    
+<StartScreen>:
+    name: 'main'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'bck.jpg'
+
+    MDLabel:
+        text: "Accu Weather"
+        halign: 'center'
+        font_style: 'H3'
+        theme_text_color: 'Custom'
+        text_color: (1,0,0,1)
+        pos_hint: {'center_x':0.5, 'center_y':0.9} 
+    MDTextField:
+        id: city_name
+        hint_text: ""
+        helper_text: "Enter Your City Name"
+        helper_text_mode: "persistent"
+        icon_right: "crosshairs-gps"
+        icon_right_color: (0,0,1,1)
+        pos_hint: {'center_x':0.5, 'center_y':0.6}
+        size_hint_x: None
+        width: 300 
+    MDRectangleFlatButton:
+        on_release: root.register()
+        text: 'Get Weather'
+        pos_hint: {'center_x':0.63,'center_y':0.5}
+        size_hint_x: None
+        width: 100
+        text_color: (1,0,0,1)    
+
+		
